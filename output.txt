@@ -1,0 +1,171 @@
+(venv) PS D:\unsupervised_histopathology> python main.py
+🚀 Starte vollständige Pipeline für unsupervised Histopathology...
+
+=== 1. TRAININGSPHASE ===
+🔧 System-Konfiguration:
+   Dataset: breastmnist
+   Latent Dim: 16
+   Biological Constraint Weight: 0.3
+   Device: cpu
+🧩 Starte Jigsaw Pretraining...
+Jigsaw Epoch 5/20, Loss: 3.0528, Acc: 0.103
+Jigsaw Epoch 10/20, Loss: 2.7420, Acc: 0.176
+Jigsaw Epoch 15/20, Loss: 2.4462, Acc: 0.222
+Jigsaw Epoch 20/20, Loss: 2.2458, Acc: 0.236
+🔬 Starte Finetuning mit biologischen Constraints...
+Finetune Epoch 5/15, Avg Loss: 27.4273
+Finetune Epoch 10/15, Avg Loss: 26.2696
+Finetune Epoch 15/15, Avg Loss: 25.4507
+✅ Modell gespeichert unter: artifacts/best_model.pth
+
+=== 2. LATENTE RAUM ANALYSE ===
+Extrahiere latente Repräsentationen: 100%|██████████████████████████████████████████████████████████████████| 18/18 [00:00<00:00, 51.52it/s] 
+
+🧬 Generiere biologische Hypothesen:
+
+Dimension 1 - Zellkern-Größe:
+   🔍 Hohe Werte in dieser Dimension korrelieren mit größeren Zellkernen. Dies könnte auf einen aggressiveren Tumor-Subtyp hindeuten, da vergrößerte Kerne oft mit hoher Teilungsaktivität assoziiert sind.
+   💯 Konfidenz: 85%
+
+Dimension 2 - Zelldichte:
+   🔍 Hohe Werte in dieser Dimension zeigen eine höhere Zelldichte. Dies könnte auf invasives Wachstum hindeuten, ein Merkmal fortgeschrittener Karzinome.
+   💯 Konfidenz: 78%
+
+Dimension 3 - Gewebearchitektur:
+   🔍 Diese Dimension trennt strukturierte von unstrukturierten Geweben. Unstrukturierte Muster (hohe Werte) könnten auf einen Verlust der normalen Gewebeorganisation hindeuten – ein Zeichen für Malignität.
+   💯 Konfidenz: 82%
+D:\unsupervised_histopathology\venv\Lib\site-packages\umap\umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+✅ Latenter Raum visualisiert und gespeichert unter: analysis_results/latent_space_umap.png
+✅ Latenter Raum visualisiert und gespeichert unter: analysis_results/latent_space_pca.png
+Traceback (most recent call last):
+  File "D:\unsupervised_histopathology\main.py", line 51, in <module>
+    run_full_pipeline()
+  File "D:\unsupervised_histopathology\main.py", line 40, in run_full_pipeline
+    analyzer.save_analysis_results()
+  File "D:\unsupervised_histopathology\utils\latent_analysis.py", line 247, in save_analysis_results
+    top_images, top_errors, _ = self.get_top_anomalies(n=10)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\unsupervised_histopathology\utils\latent_analysis.py", line 77, in get_top_anomalies
+    top_images = self.images[top_indices].clone().detach()
+                 ~~~~~~~~~~~^^^^^^^^^^^^^
+ValueError: At least one stride in the given numpy array is negative, and tensors with negative strides are not currently supported. (You can probably work around this by making a copy of your array  with array.copy().)
+(venv) PS D:\unsupervised_histopathology>  
+
+
+
+
+
+(venv) PS D:\unsupervised_histopathology> python main.py
+🚀 Starte vollständige Pipeline für unsupervised Histopathology...
+
+=== 1. TRAININGSPHASE ===
+🔧 System-Konfiguration:
+   Dataset: breastmnist
+   Latent Dim: 16
+   Biological Constraint Weight: 0.3
+   Device: cpu
+🧩 Starte Jigsaw Pretraining...
+Jigsaw Epoch 5/20, Loss: 3.0852, Acc: 0.104
+Jigsaw Epoch 10/20, Loss: 2.7827, Acc: 0.189
+Jigsaw Epoch 15/20, Loss: 2.4769, Acc: 0.220
+Jigsaw Epoch 20/20, Loss: 2.2694, Acc: 0.255
+🔬 Starte Finetuning mit biologischen Constraints...
+Finetune Epoch 5/15, Avg Loss: 27.4273
+Finetune Epoch 10/15, Avg Loss: 26.2696
+Finetune Epoch 15/15, Avg Loss: 25.4507
+✅ Modell gespeichert unter: artifacts/best_model.pth
+
+=== 2. LATENTE RAUM ANALYSE ===
+Extrahiere latente Repräsentationen: 100%|██████████████████████████████████████████████████████████████████| 18/18 [00:00<00:00, 57.05it/s] 
+
+🧬 Generiere biologische Hypothesen:
+
+Dimension 1 - Zellkern-Größe:
+   🔍 Hohe Werte in dieser Dimension korrelieren mit größeren Zellkernen. Dies könnte auf einen aggressiveren Tumor-Subtyp hindeuten, da vergrößerte Kerne oft mit hoher Teilungsaktivität assoziiert sind.
+   💯 Konfidenz: 85%
+
+Dimension 2 - Zelldichte:
+   🔍 Hohe Werte in dieser Dimension zeigen eine höhere Zelldichte. Dies könnte auf invasives Wachstum hindeuten, ein Merkmal fortgeschrittener Karzinome.
+   💯 Konfidenz: 78%
+
+Dimension 3 - Gewebearchitektur:
+   🔍 Diese Dimension trennt strukturierte von unstrukturierten Geweben. Unstrukturierte Muster (hohe Werte) könnten auf einen Verlust der normalen Gewebeorganisation hindeuten – ein Zeichen für Malignität.
+   💯 Konfidenz: 82%
+D:\unsupervised_histopathology\venv\Lib\site-packages\umap\umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+✅ Latenter Raum visualisiert und gespeichert unter: analysis_results/latent_space_umap.png
+✅ Latenter Raum visualisiert und gespeichert unter: analysis_results/latent_space_pca.png
+✅ Alle Analyseergebnisse gespeichert unter: analysis_results
+
+=== 3. INTERAKTIVE PATHOLOGEN-APP ===
+Starte Streamlit-App für Pathologen-Feedback...
+Öffne im Browser: http://localhost:8501
+2026-01-17 20:10:18.778 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.217 
+  Warning: to view this Streamlit app on a browser, run it with the following
+  command:
+
+    streamlit run main.py [ARGUMENTS]
+2026-01-17 20:10:20.217 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.218 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.218 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.218 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.219 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.219 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.219 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.219 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.219 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.219 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.220 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.220 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+🔧 System-Konfiguration:
+   Dataset: breastmnist
+   Latent Dim: 16
+   Biological Constraint Weight: 0.3
+   Device: cpu
+2026-01-17 20:10:20.220 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.220 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.220 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.221 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.221 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.221 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.221 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.221 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.221 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.221 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.221 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.222 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+Extrahiere latente Repräsentationen: 100%|████████████████████████████████████████████████████████████████████| 9/9 [00:00<00:00, 55.66it/s] 
+2026-01-17 20:10:20.391 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.391 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.391 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.391 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.391 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.391 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.392 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.392 Session state does not function when running a script without `streamlit run`
+2026-01-17 20:10:20.392 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.392 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.392 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.393 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.393 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.393 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.393 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.393 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.393 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.393 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.394 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.394 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.394 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.394 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.394 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.394 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.394 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.395 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.395 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.395 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.395 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.395 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-01-17 20:10:20.395 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+(venv) PS D:\unsupervised_histopathology>  

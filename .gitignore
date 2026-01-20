@@ -1,0 +1,39 @@
+# Virtual Environment
+venv/
+env/
+.venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Output directories (generated during runtime)
+artifacts/
+analysis_results/
+
+# Logs and databases
+*.log
+*.sqlite
+
+# Local configuration
+config.local
+.env
+.secrets
+
+# Streamlit
+.streamlit/

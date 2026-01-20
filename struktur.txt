@@ -1,0 +1,23 @@
+unsupervised_histopathology/
+├── data/
+│   ├── __init__.py
+│   ├── loaders.py          # BreastMNIST + externe Prototypen
+│   └── stain_augmentation.py
+├── models/
+│   ├── __init__.py
+│   ├── jigsaw_pretraining.py
+│   ├── constrained_vae.py
+│   └── prototype_learning.py
+├── utils/
+│   ├── biological_features.py  # Zellkern-Analyse
+│   └── latent_analysis.py
+├── human_in_the_loop/
+│   ├── streamlit_app.py    # Interaktive Pathologen-App
+│   └── hypothesis_generator.py
+├── evaluation/
+│   └── biological_validation.py
+├── config.py               # Zentrale Konfiguration
+├── train.py                # Training mit biologischen Constraints
+├── main.py                 # End-to-End Workflow
+├── requirements.txt
+└── README.md
